@@ -3,8 +3,10 @@
   <button (click)="increment()">Increment</button>
   <button (click)="decrement()">Decrement</button>
   <div [ngSwitch]="getCounterStatus()">
-    <div *ngSwitchCase="'Positive'">Positive</div>
-    <div *ngSwitchCase="'Negative'">Negative</div>
-    <div *ngSwitchDefault>Neutral</div>
+    <div *ngSwitchCase="'Positive'" [ngStyle]="{ color: 'green' }">
+      Positive
+    </div>
+    <div *ngSwitchCase="'Negative'" [ngStyle]="{ color: 'red' }">Negative</div>
+    <div *ngSwitchDefault [ngStyle]="{ color: 'grey' }">Neutral</div>
   </div>
 </div>
