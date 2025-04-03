@@ -7,6 +7,4 @@ import { CounterComponent } from "./counter/counter.component";
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })
-export class AppComponent {
-  title = "counter";
-}
+export class AppComponent {}
