@@ -2,4 +2,9 @@
   <h1>Counter: {{ counter }}</h1>
   <button (click)="increment()">Increment</button>
   <button (click)="decrement()">Decrement</button>
+  <div [ngSwitch]="getCounterStatus()">
+    <div *ngSwitchCase="'Positive'">Positive</div>
+    <div *ngSwitchCase="'Negative'">Negative</div>
+    <div *ngSwitchDefault>Neutral</div>
+  </div>
 </div>
