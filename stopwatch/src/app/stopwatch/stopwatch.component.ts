@@ -26,7 +26,7 @@ export class StopwatchComponent {
     clearInterval(this.intervalRef);
     console.log("StopWatch stopped");
   }
-  private Reset() {
+  Reset() {
     this.isRunning = false;
     clearInterval(this.intervalRef);
     this.elapsedTime = 0;
