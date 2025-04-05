@@ -27,5 +27,35 @@ export class GuessTheNumberComponent {
       guess <= GuessTheNumberComponent.MAX_NUMBER
     );
   }
-  
+  submitGuess(): void {
+    if (!this.isValidGuess(this.guessedNumber)) {
+      this.feedbackMessage = `Enter a number between 1 and ${GuessTheNumberComponent.MAX_NUMBER}.`;
+      return;
+    }
+    this.attemptsLeft--;
+    this.evaluateGuess();
+  }
+  private evaluateGuess(): void {
+    if (this.guessedNumber === this.secretNumber) {
+      this.endGame(true);
+    } else if (this.attemptsLeft === 0) {
+      this.endGame(false);
+    } else {
+      this.feedbackMessage =
+        this.guessedNumber! > this.secretNumber
+          ? "High. Try again"
+          : `Low. Try again ${this.secretNumber}`;
+    }
+  }
+  private endGame(isWin: boolean): void {
+    this.gameOver = true;
+    this.feedbackMessage = isWin ? "Congratulations!" : "Game over";
+  }
+  resetGame(): void {
+    this.secretNumber = this.generateRandomNumber();
+    this.attemptsLeft = GuessTheNumberComponent.MAX_ATTEMPTS;
+    this.guessedNumber = undefined;
+    this.feedbackMessage = "";
+    this.gameOver = false;
+  }
 }
