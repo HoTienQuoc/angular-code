@@ -1,10 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { FilterPipe } from "./filter.pipe";
 
 @Component({
   selector: "app-root",
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, FilterPipe],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })
