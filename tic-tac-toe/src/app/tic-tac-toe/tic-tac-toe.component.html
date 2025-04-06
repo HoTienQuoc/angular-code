@@ -9,7 +9,7 @@
             *ngFor="let cell of board; let i = index"
             (click)="makeMove(i)"
         >
-            {{cell}
+            {{ cell }}
         </div>
     </div>
     <div class="winner" *ngIf="winner">Player {{ winner }} win</div>
