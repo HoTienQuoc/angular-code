@@ -7,6 +7,4 @@ import { ClockComponent } from "./clock/clock.component";
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })
-export class AppComponent {
-  title = "clock";
-}
+export class AppComponent {}
