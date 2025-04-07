@@ -1,11 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { faqAccordionAnimations } from "./faq-accordion.animations";
 
 @Component({
   selector: "app-faq-accordion",
   imports: [CommonModule],
   templateUrl: "./faq-accordion.component.html",
   styleUrl: "./faq-accordion.component.scss",
+  animations: [faqAccordionAnimations.slideToggle],
 })
 export class FaqAccordionComponent {
   openedIndex: number | null = null;
