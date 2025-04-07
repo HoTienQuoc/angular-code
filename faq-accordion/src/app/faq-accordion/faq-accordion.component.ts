@@ -26,4 +26,7 @@ export class FaqAccordionComponent {
         "Directives are instructions in the DOM. Angular directives allow you to attach behavior to elements in the DOM.",
     },
   ];
+  toggleFAQ(index: number) {
+    this.openedIndex = this.openedIndex === index ? null : index;
+  }
 }
