@@ -1,10 +1,14 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, Renderer2 } from "@angular/core";
 
 @Directive({
-  selector: '[appFocusOn]'
+  selector: "[appFocusOn]",
 })
 export class FocusOnDirective {
-
-  constructor() { }
-
+  constructor(
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+  ) {}
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.focus();
+  }
 }
