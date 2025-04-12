@@ -6,6 +6,7 @@
     </p>
     <div class="currency-row">
         <div class="currency-column">
+            <label for="sourceCurrency">From:</label>
             <select
                 name=""
                 id="sourceCurrency"
@@ -17,19 +18,20 @@
                 </option>
             </select>
         </div>
+        <div class="currency-column">
+            <label for="targetCurrency">To:</label>
+            <select
+                id="targetCurrency"
+                [(ngModel)]="targetCurrency"
+                (ngModelChange)="convertCurrency()"
+            >
+                <option *ngFor="let currency of currencies" [value]="currency">
+                    {{ getFlagAndCurrency(currency) }}
+                </option>
+            </select>
+        </div>
     </div>
-    <div class="currency-column">
-        <label for="targetCurrency">To:</label>
-        <select
-            id="targetCurrency"
-            [(ngModel)]="targetCurrency"
-            (ngModelChange)="convertCurrency()"
-        >
-            <option *ngFor="let currency of currencies" [value]="currency">
-                {{ getFlagAndCurrency(currency) }}
-            </option>
-        </select>
-    </div>
+
     <div class="amount-row">
         <div class="amount-column">
             <label for="amount">Amount:</label>
@@ -64,10 +66,10 @@
             <h3>Conversion Rate:</h3>
             <p>{{ conversionRate }}</p>
         </div>
-    </div>
-    <div class="convered-amount">
-        <h3>Conversion Amount:</h3>
-        <p>{{ result | currency: targetCurrency }}</p>
-        <div></div>
+        <div class="converted-amount">
+            <h3>Conversion Amount:</h3>
+            <p>{{ result | currency: targetCurrency }}</p>
+            <div></div>
+        </div>
     </div>
 </div>
